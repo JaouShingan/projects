@@ -7,7 +7,6 @@
 					<SiderMenu />
 				</Sider>
 				<Content>
-					<!-- <fs ref="test" /> -->
 					<keep-alive>
 						<router-view />
 					</keep-alive>
@@ -23,14 +22,11 @@ import SiderMenu from './components/SiderMenu';
 export default {
 	components: {
 		DHeader,
-		SiderMenu,
+		SiderMenu
 	},
 	data() {
 		return {};
-	},
-	mounted() {
-		console.log(this.$refs.test);
-	},
+	}
 };
 </script>
 <style lang="less">
