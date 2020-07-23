@@ -12,15 +12,23 @@ import {
 	Sider,
 	Content,
 	Footer,
+	Menu,
+	Icon
 } from 'view-design';
 
 Vue.component(Button);
 Vue.component(Table);
+Vue.component('Icon', Icon);
 Vue.component('Layout', Layout);
 Vue.component('Header', Header);
 Vue.component('Sider', Sider);
 Vue.component('Content', Content);
 Vue.component('Footer', Footer);
+Vue.component('Menu', Menu);
+Vue.component('Submenu', Menu.Sub);
+Vue.component('MenuItem', Menu.Item);
+
+console.log(Menu)
 
 Vue.config.productionTip = false;
 
