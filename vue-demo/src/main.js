@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+import './common.less'
 import 'view-design/dist/styles/iview.css';
 import {
 	Button,
@@ -28,7 +29,7 @@ Vue.component('Menu', Menu);
 Vue.component('Submenu', Menu.Sub);
 Vue.component('MenuItem', Menu.Item);
 
-console.log(Menu)
+
 
 Vue.config.productionTip = false;
 

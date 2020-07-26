@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 export const routes = [
 	{
 		path: '/',
-		name: 'Home',
+		name: 'Dashboard',
 		component: Home,
 	},
 	{

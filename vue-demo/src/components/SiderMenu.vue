@@ -1,5 +1,5 @@
 <template>
-	<Menu class="d-menu" accordion width="100%">
+	<Menu class="d-menu" accordion width="100%" :active-name="activeName" @on-select="onSelect">
 		<template v-for="menu in menuList">
 			<MenuItem
 				:name="menu.id"
@@ -28,6 +28,7 @@
 </template>
 <script>
 import { routes } from '@router';
+import { mapMutations } from 'vuex'
 export default {
 	computed: {
 		menuList() {
@@ -49,6 +50,15 @@ export default {
 					children: tempChildren
 				};
 			});
+		},
+		activeName () {
+			return this.menuList[0].id || ''
+		}
+	},
+	methods: {
+		...mapMutations(['SET_MENU']),
+		onSelect (name) {
+			this.SET_MENU(name)
 		}
 	}
 };

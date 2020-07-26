@@ -1,8 +1,10 @@
 <template>
 	<div id="app">
 		<Layout>
-			<DHeader></DHeader>
-			<Layout class="body">
+			<Header class="viv-header">
+			</Header>
+			<!-- <DHeader></DHeader> -->
+			<Layout class="viv-body">
 				<Sider hide-trigger>
 					<SiderMenu />
 				</Sider>
@@ -17,11 +19,9 @@
 	</div>
 </template>
 <script>
-import DHeader from './components/DHeader';
 import SiderMenu from './components/SiderMenu';
 export default {
 	components: {
-		DHeader,
 		SiderMenu
 	},
 	data() {
@@ -30,7 +30,4 @@ export default {
 };
 </script>
 <style lang="less">
-.body {
-	height: calc(100vh - 50px);
-}
 </style>

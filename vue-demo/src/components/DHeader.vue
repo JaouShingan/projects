@@ -10,7 +10,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .header {
-	height: 50px;
+	height: 60px;
 	width: 100vw;
 	border-bottom: 1px solid #ccc;
 	box-shadow: 0 5px 5px -2px #ddd;
