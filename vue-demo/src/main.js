@@ -3,9 +3,10 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
-import './common.less'
+import './common.less';
 import 'view-design/dist/styles/iview.css';
 import {
+	Input,
 	Button,
 	Table,
 	Layout,
@@ -14,11 +15,13 @@ import {
 	Content,
 	Footer,
 	Menu,
-	Icon
+	Icon,
+	Form
 } from 'view-design';
 
-Vue.component(Button);
-Vue.component(Table);
+Vue.component('Input', Input);
+Vue.component('Button', Button);
+Vue.component('Table', Table);
 Vue.component('Icon', Icon);
 Vue.component('Layout', Layout);
 Vue.component('Header', Header);
@@ -28,13 +31,15 @@ Vue.component('Footer', Footer);
 Vue.component('Menu', Menu);
 Vue.component('Submenu', Menu.Sub);
 Vue.component('MenuItem', Menu.Item);
-
-
+Vue.component('Form', Form);
+Vue.component('Form', Form);
+Vue.component('FormItem', Form.Item);
+console.log(Form);
 
 Vue.config.productionTip = false;
 
 new Vue({
 	router,
 	store,
-	render: (h) => h(App),
+	render: (h) => h(App)
 }).$mount('#app');

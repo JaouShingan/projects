@@ -32,7 +32,8 @@ import { mapMutations } from 'vuex'
 export default {
 	computed: {
 		menuList() {
-			return routes.map(({ path, name, children }, index) => {
+			console.log(routes[0])
+			return routes[0].children.filter(route => !route.hidden).map(({ path, name, children }, index) => {
 				let tempChildren = null;
 				if (children && children.length > 0) {
 					tempChildren = children.map(
