@@ -1,9 +1,9 @@
 <template>
-	<div class="viv-admin">
+	<div class="viv-login">
 		<div class="title">
 			VUE-IVIEW-ADMIN
 		</div>
-		<Form :model="formInline">
+		<Form ref="login" :model="formInline" :rules="rules">
 			<FormItem prop="user">
 				<Input
 					type="text"
@@ -11,8 +11,6 @@
 					placeholder="Username"
 					prefix="ios-person-outline"
 				/>
-				<!-- <Icon type="ios-person-outline" slot="prepend"></Icon>
-				</Input> -->
 			</FormItem>
 			<FormItem prop="password">
 				<Input
@@ -21,17 +19,13 @@
 					placeholder="Password"
 					prefix="ios-lock-outline"
 				/>
-				<!-- <Icon type="ios-lock-outline" slot="prepend"></Icon>
-				</Input> -->
 			</FormItem>
 			<FormItem>
 				<div class="btn-area">
-					<Button type="default" @click="handleSubmit('formInline')"
+					<!-- <Button type="default" @click="handleSubmit()"
 						>注册</Button
-					>
-					<Button type="primary" @click="handleSubmit('formInline')"
-						>登录</Button
-					>
+					> -->
+					<Button type="primary" @click="handleSubmit()">登录</Button>
 				</div>
 			</FormItem>
 		</Form>
@@ -42,20 +36,50 @@ export default {
 	data() {
 		return {
 			formInline: {
-				user: '',
-				password: ''
+				user: 'Admin',
+				password: '123456'
+			},
+			rules: {
+				user: [
+					{
+						required: true,
+						message: 'Please fill in the user name',
+						trigger: 'blur'
+					}
+				],
+				password: [
+					{
+						required: true,
+						message: 'Please fill in the password.',
+						trigger: 'blur'
+					},
+					{
+						type: 'string',
+						min: 6,
+						message:
+							'The password length cannot be less than 6 bits',
+						trigger: 'blur'
+					}
+				]
 			}
 		};
 	},
 	methods: {
 		handleSubmit() {
-			this.$router.push('/')
+			let validateState = true;
+			this.$refs.login.validate((valid) => {
+				validateState && (validateState = valid);
+			});
+			if (validateState) {
+				this.$Message.success('Login Success!');
+				setTimeout(() => this.$router.push('/'), 1000);
+			}
 		}
 	}
 };
 </script>
 <style lang="less" scoped>
-.viv-admin {
+.viv-login {
 	width: 100%;
 	height: 100%;
 	display: flex;

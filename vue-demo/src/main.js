@@ -16,7 +16,9 @@ import {
 	Footer,
 	Menu,
 	Icon,
-	Form
+	Form,
+	Dropdown,
+	Message
 } from 'view-design';
 
 Vue.component('Input', Input);
@@ -32,10 +34,12 @@ Vue.component('Menu', Menu);
 Vue.component('Submenu', Menu.Sub);
 Vue.component('MenuItem', Menu.Item);
 Vue.component('Form', Form);
-Vue.component('Form', Form);
 Vue.component('FormItem', Form.Item);
-console.log(Form);
+Vue.component('Dropdown', Dropdown);
+Vue.component('DropdownMenu', Dropdown.Menu);
+Vue.component('DropdownItem', Dropdown.Item);
 
+Vue.prototype.$Message = Message
 Vue.config.productionTip = false;
 
 new Vue({

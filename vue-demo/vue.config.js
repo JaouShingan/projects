@@ -10,5 +10,11 @@ module.exports = {
 				'@views': path.resolve(__dirname, 'src/views')
 			}
 		}
+	},
+	pluginOptions: {
+		'style-resources-loader': {
+			preProcessor: 'less',
+			patterns: [path.resolve(__dirname, 'src/common.less')] // 引入全局样式变量
+		}
 	}
 };
