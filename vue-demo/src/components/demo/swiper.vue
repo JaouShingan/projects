@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<div class="box" :style="box2Style">
-			<div class="item" v-for="(item, index) in data" :key="index">
+			<div class="item" v-for="(item, index) in data2" :key="index">
 				{{ item }}
 			</div>
 		</div>
@@ -16,7 +16,8 @@
 export default {
 	data() {
 		return {
-			data: [1, 2, 3, 4],
+			data: [4, 1, 2, 3, 4],
+			data2: [1, 2, 3, 4],
 			top: 0,
 			re0: false,
 			showIndex: 1,
@@ -37,7 +38,7 @@ export default {
 				top = 50;
 			}
 			return {
-				top: top + 'px',
+				top: top - 50 + 'px',
 				visibility
 			};
 		},

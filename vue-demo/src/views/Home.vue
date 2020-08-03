@@ -9,6 +9,7 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import Swiper from '@/components/demo/swiper'
+// import Swiper from '@/components/demo/swiper2'
 
 export default {
 	name: 'Home',

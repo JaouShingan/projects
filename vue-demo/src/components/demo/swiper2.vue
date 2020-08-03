@@ -1,9 +1,14 @@
 <template>
-	<div class="swiper">
-		<div class="box" :style="boxStyle">
-			<div class="item" v-for="(item, index) in data" :key="index">
-				{{ item }}
+	<div>
+		{{ top }} {{ boxStyle }}
+		<div class="swiper">
+			<div class="box" :style="boxStyle">
+				<div class="item" v-for="item in list" :key="item.id">
+					{{ item.data }}
+				</div>
 			</div>
+			<!-- <div class="box" :style="boxStyle">
+		</div> -->
 		</div>
 	</div>
 </template>
@@ -12,29 +17,49 @@ export default {
 	data() {
 		return {
 			data: [1, 2, 3, 4, 1],
-			top: 0,
-			re0: false,
 			showIndex: 1,
 			itemHeight: 50,
-			offset: 200
+			top: 0,
+			transition: 'transform 0.5s ease'
 		};
 	},
 	computed: {
+		list() {
+			return this.data.map((item, index) => ({
+				data: item,
+				id: index
+			}));
+		},
 		boxStyle() {
-			return {};
+			return {
+				transform: `translate3d(0, ${this.top}px, 0)`,
+				transition: this.transition
+			};
 		}
 	},
 	mounted() {
 		setInterval(() => {
-			this.showIndex += 1;
-			if (this.showIndex === 5) {
-				this.showIndex = 1;
-			}
+			this.next();
 		}, 1000);
 	},
 	methods: {
+		next() {
+			this.top = this.top - 50;
+			// console.log(this.list.length * this.itemHeight);
+			if (-this.top === this.list.length * this.itemHeight) {
+				this.ret();
+				// this.top = 0;
+			}
+		},
 		ret() {
-			this.top = 0;
+			setTimeout(() => {
+				console.log(1);
+				this.top = 0;
+				this.transition = 'unset';
+				setTimeout(() => {
+					this.transition = 'transform 0.5s ease';
+				}, 0);
+			}, 0);
 		}
 	}
 };
@@ -44,18 +69,15 @@ export default {
 	width: 200px;
 	height: 50px;
 	overflow: hidden;
-	position: relative;
 	.box {
-		transition: top 0.5s ease;
-		position: absolute;
-		top: 0;
-		.item {
-			width: 200px;
-			height: 50px;
-			background: #cccccc;
-			text-align: center;
-			line-height: 50px;
-		}
+		transition: transform 0.5s ease;
+	}
+	.item {
+		width: 200px;
+		height: 50px;
+		background: #cccccc;
+		text-align: center;
+		line-height: 50px;
 	}
 }
 </style>
