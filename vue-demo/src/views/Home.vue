@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<Swiper/>
+		<!-- <Swiper/> -->
 		<!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
 	</div>
 </template>
@@ -8,14 +8,14 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import Swiper from '@/components/demo/swiper'
+// import Swiper from '@/components/demo/swiper'
 // import Swiper from '@/components/demo/swiper2'
 
 export default {
 	name: 'Home',
 	components: {
 		// HelloWorld,
-		Swiper
+		// Swiper
 	},
 }
 </script>
